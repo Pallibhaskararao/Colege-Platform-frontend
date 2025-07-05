@@ -1,0 +1,72 @@
+.profile-mini {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.profile-mini-user {
+  display: flex;
+  align-items: center;
+}
+
+/* Reduce the size of the profile picture container */
+.profile-mini .profile-mini-user .profile-pic-holder-mini {
+  width: 30px !important; /* Reduced from 40px to 30px */
+  height: 30px !important; /* Reduced from 40px to 30px */
+  border-radius: 50%;
+  background-color: #e9ecef;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  margin-right: 10px;
+}
+
+/* Ensure the image scales properly */
+.profile-mini .profile-mini-user .profile-pic {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+}
+
+.profile-mini-info {
+  flex: 1;
+}
+
+.profile-mini-name {
+  margin: 0;
+  font-size: 14px;
+}
+
+.profile-mini-name:hover {
+  text-decoration: underline;
+}
+
+.profile-mini-email {
+  margin: 5px 0;
+  color: #666;
+  font-size: 12px;
+}
+
+.add-button,
+.remove-button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  max-width: 75px;
+}
+
+.add-button {
+  background-color: #28a745;
+  color: white;
+}
+
+.remove-button {
+  background-color: #dc3545;
+  color: white;
+}

@@ -1,0 +1,111 @@
+/* Vertical Sidebar */
+nav {
+  background-color: #1a2526; /* Dark teal background */
+  width: 200px; /* Fixed width for sidebar */
+  height: 100vh; /* Full height of the viewport */
+  position: fixed; /* Fixed position on the left */
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 10px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Shadow on the right side */
+}
+
+/* Container for navigation links */
+nav .navbar-links-container {
+  flex-grow: 1; /* Take up all available space */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribute items equally */
+  height: 100%; /* Ensure it takes full height of nav */
+}
+
+/* Links in the sidebar (including buttons) */
+nav .navbar-link {
+  color: #e0e0e0; /* Light gray text */
+  text-decoration: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 5px;
+  position: relative; /* For the underline animation */
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between icon and text */
+  transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+  flex: 1; /* Each item takes equal space */
+  justify-content: flex-start; /* Align content to the left */
+  max-height: 60px; /* Optional: set a max height to prevent over-expansion */
+}
+
+/* Underline animation for hover */
+nav .navbar-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #4a6a6d; /* Muted teal-gray for underline */
+  bottom: 0;
+  left: 15px; /* Align with padding */
+  transition: width 0.3s ease;
+}
+
+/* Hover effect for links */
+nav .navbar-link:hover {
+  color: #4a6a6d; /* Muted teal-gray on hover */
+  background-color: rgba(74, 106, 109, 0.1); /* Subtle background on hover */
+  transform: scale(1.02);
+}
+
+/* Underline grows on hover */
+nav .navbar-link:hover::after {
+  width: calc(100% - 30px); /* Full width minus padding */
+}
+
+/* Active/selected link style */
+nav .navbar-link.active {
+  background-color: rgba(74, 106, 109, 0.2); /* Slightly darker background */
+  color: #4a6a6d; /* Muted teal-gray text */
+  position: relative; /* For the left border */
+  transform: translateY(-5px); /* Lift effect */
+  box-shadow: 
+    0 2px 5px rgba(0, 0, 0, 0.2), /* Shadow for depth */
+    0 0 8px rgba(255, 255, 255, 0.3); /* White glow effect */
+  transition: 
+    background-color 0.3s ease, 
+    transform 0.2s ease, 
+    box-shadow 0.2s ease;
+}
+
+/* Left border for active link */
+nav .navbar-link.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background-color: #4a6a6d; /* Muted teal-gray left border */
+}
+
+/* Style for the text next to the icon */
+nav .navbar-link span {
+  font-size: 16px; /* Match link font size */
+}
+
+/* Style for the logout button */
+nav .navbar-link.navbar-logout {
+  background-color: #ff6b6b; /* Softer red for logout */
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for the logout button */
+nav .navbar-link.navbar-logout:hover {
+  background-color: #ff8787; /* Lighter red on hover */
+  transform: scale(1.02);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
+}

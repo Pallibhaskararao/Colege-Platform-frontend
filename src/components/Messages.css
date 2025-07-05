@@ -1,0 +1,156 @@
+/* Messages.css */
+.messages-container {
+  display: flex;
+  height: 100vh;
+  background-color: #f5f5f5; /* Light gray background for the entire container */
+}
+
+.sidebar {
+  width: 300px;
+  background-color: #f5f5f5; /* Match the container background */
+  border-right: 1px solid #ddd;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.sidebar h2 {
+  margin: 0 0 20px;
+  color: #2C3E50;
+}
+
+.conversation-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Space between cards */
+}
+
+.conversation-card {
+  background-color: #fff; /* White background for cards to stand out */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.conversation-card:hover {
+  background-color: #f0f0f0; /* Light gray on hover */
+  transform: scale(1.02); /* Slight scale effect on hover */
+}
+
+.conversation-card.active {
+  background-color: #e0e7ff; /* Light blue for the selected conversation */
+  border-left: 4px solid #3498DB; /* Blue border on the left for the active card */
+}
+
+.latest-message {
+  margin: 5px 0 0;
+  color: #666;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Truncate long messages with ellipsis */
+}
+
+.chat-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+.chat-header {
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.messages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.message {
+  max-width: 60%;
+  padding: 10px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.message.sent {
+  background-color: #3498DB;
+  color: #fff;
+  align-self: flex-end;
+}
+
+.message.received {
+  background-color: #e9ecef;
+  align-self: flex-start;
+}
+
+.message p {
+  margin: 0;
+}
+
+.message span {
+  font-size: 10px;
+  color: #999;
+  margin-top: 5px;
+  display: block;
+}
+
+.message-input {
+  padding: 20px;
+  border-top: 1px solid #ddd;
+  background-color: #f5f5f5; /* Match the container background */
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.input-wrapper input {
+  flex: 1; /* Take up most of the space */
+  padding: 12px; /* Increased padding for better visibility */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px; /* Larger font size for better readability */
+  min-width: 0; /* Prevent shrinking issues */
+  background-color: #fff; /* White background for the input */
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+}
+
+.input-wrapper input:focus {
+  outline: none;
+  border-color: #3498DB; /* Blue border on focus */
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.3); /* Subtle glow on focus */
+}
+
+.input-wrapper button {
+  background-color: #3498DB;
+  color: #fff;
+  border: none;
+  padding: 10px 15px; /* Smaller padding for a compact button */
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px; /* Smaller font size */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the content */
+  width: 60px; /* Fixed width to prevent resizing */
+  transition: background-color 0.3s;
+}
+
+.input-wrapper button:hover {
+  background-color: #2980B9;
+}
+
+.input-wrapper button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

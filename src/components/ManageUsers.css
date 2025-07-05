@@ -1,0 +1,130 @@
+/* ManageUsers.css */
+.manage-users-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .header h2 {
+    color: #333;
+  }
+  
+  .back-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    max-width: 190px;
+  }
+  
+  .back-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .users-table,
+  .ban-requests-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .users-table th,
+  .users-table td,
+  .ban-requests-table th,
+  .ban-requests-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .users-table th,
+  .ban-requests-table th {
+    background-color: #f4f4f4;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .users-table tr:hover,
+  .ban-requests-table tr:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .ban-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+  }
+  
+  .ban-button:hover {
+    background-color: #c82333;
+  }
+  
+  .unban-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+  }
+  
+  .unban-button:hover {
+    background-color: #218838;
+  }
+  
+  .approve-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+  }
+  
+  .approve-button:hover {
+    background-color: #218838;
+  }
+  
+  .reject-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+  }
+  
+  .reject-button:hover {
+    background-color: #c82333;
+  }
+  
+  h2 {
+    color: #333;
+    margin-bottom: 20px;
+  }

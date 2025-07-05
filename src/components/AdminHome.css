@@ -1,0 +1,47 @@
+.admin-home {
+  background-color: #aaaeb2;
+  color: #000000;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.admin-home h2 {
+  color: #E74C3C;
+}
+
+.admin-home h3 {
+  color: #E74C3C; /* Match the h2 color for consistency */
+}
+
+.admin-tools {
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #34495E;
+  border-radius: 8px;
+}
+
+.admin-tools h3 {
+  color: #E74C3C;
+  margin-top: 0;
+}
+
+.admin-tools ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 20px; /* Add spacing between links */
+}
+
+.admin-tools li {
+  margin-bottom: 10px;
+}
+
+.admin-tools a {
+  color: #3498DB;
+  text-decoration: none;
+  transition: color 0.3s; /* Add hover effect */
+}
+
+.admin-tools a:hover {
+  color: #5DADE2; /* Lighter blue on hover */
+}
