@@ -12,7 +12,7 @@ const CreatePost = () => {
   const handlePostSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/posts', {
+      await axios.post('http://https://colege-platform-backend.onrender.com/api/posts', {
         title,
         description,
         tags: tags.split(',').map(tag => tag.trim()),

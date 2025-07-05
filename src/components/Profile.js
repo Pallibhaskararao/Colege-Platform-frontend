@@ -50,15 +50,15 @@ const Profile = () => {
 
     const fetchData = async () => {
       try {
-        const userRequest = axios.get('http://localhost:5000/api/users/profile', {
+        const userRequest = axios.get('http://https://colege-platform-backend.onrender.com/api/users/profile', {
           headers: { Authorization: `Bearer ${token}` },
         });
 
-        const branchesRequest = axios.get('http://localhost:5000/api/branches');
+        const branchesRequest = axios.get('http://https://colege-platform-backend.onrender.com/api/branches');
 
-        const skillsRequest = axios.get('http://localhost:5000/api/skills');
+        const skillsRequest = axios.get('http://https://colege-platform-backend.onrender.com/api/skills');
 
-        const postsRequest = axios.get('http://localhost:5000/api/posts/user/me', {
+        const postsRequest = axios.get('http://https://colege-platform-backend.onrender.com/api/posts/user/me', {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -102,7 +102,7 @@ const Profile = () => {
     e.preventDefault();
     try {
       const res = await axios.put(
-        'http://localhost:5000/api/users/profile',
+        'http://https://colege-platform-backend.onrender.com/api/users/profile',
         { name, email, branch, bio, skills: skills.map((skill) => skill._id || skill) },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -113,7 +113,7 @@ const Profile = () => {
         const formData = new FormData();
         formData.append('profilePicture', profilePicture);
         const uploadRes = await axios.put(
-          'http://localhost:5000/api/users/profile-picture',
+          'http://https://colege-platform-backend.onrender.com/api/users/profile-picture',
           formData,
           {
             headers: {
@@ -156,7 +156,7 @@ const Profile = () => {
   const handleAcceptRequest = async (requestId) => {
     try {
       const res = await axios.put(
-        `http://localhost:5000/api/users/requests/${requestId}/accept`,
+        `http://https://colege-platform-backend.onrender.com/api/users/requests/${requestId}/accept`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -176,7 +176,7 @@ const Profile = () => {
   const handleDeclineRequest = async (requestId) => {
     try {
       const res = await axios.put(
-        `http://localhost:5000/api/users/requests/${requestId}/decline`,
+        `http://https://colege-platform-backend.onrender.com/api/users/requests/${requestId}/decline`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -196,7 +196,7 @@ const Profile = () => {
   const handleLike = async (postId) => {
     try {
       const res = await axios.post(
-        `http://localhost:5000/api/posts/${postId}/like`,
+        `http://https://colege-platform-backend.onrender.com/api/posts/${postId}/like`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -216,7 +216,7 @@ const Profile = () => {
   const handleDislike = async (postId) => {
     try {
       const res = await axios.post(
-        `http://localhost:5000/api/posts/${postId}/dislike`,
+        `http://https://colege-platform-backend.onrender.com/api/posts/${postId}/dislike`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -236,7 +236,7 @@ const Profile = () => {
   const handleCommentSubmit = async (postId, text) => {
     try {
       const res = await axios.post(
-        `http://localhost:5000/api/posts/${postId}/comment`,
+        `http://https://colege-platform-backend.onrender.com/api/posts/${postId}/comment`,
         { text },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -256,7 +256,7 @@ const Profile = () => {
   const handleDeletePost = async (postId) => {
     if (!window.confirm('Are you sure you want to delete this post?')) return;
     try {
-      await axios.delete(`http://localhost:5000/api/posts/${postId}`, {
+      await axios.delete(`http://https://colege-platform-backend.onrender.com/api/posts/${postId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setPosts(posts.filter((p) => p._id !== postId));
@@ -276,7 +276,7 @@ const Profile = () => {
   const handleRemoveAcquaintance = async (acquaintanceId) => {
     if (!window.confirm('Are you sure you want to remove this acquaintance?')) return;
     try {
-      const res = await axios.delete(`http://localhost:5000/api/users/acquaintances/${acquaintanceId}`, {
+      const res = await axios.delete(`http://https://colege-platform-backend.onrender.com/api/users/acquaintances/${acquaintanceId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setUser(res.data.user);
@@ -306,7 +306,7 @@ const Profile = () => {
       <div className="profile-content">
         <div className="profile-pic-holder">
           <img
-            src={`http://localhost:5000${user.profilePicture}`} // Retrieve profilePicture from the database
+            src={`http://https://colege-platform-backend.onrender.com${user.profilePicture}`} // Retrieve profilePicture from the database
             alt="Profile"
             className="profile-pic"
           />

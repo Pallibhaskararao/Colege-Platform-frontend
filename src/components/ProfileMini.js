@@ -12,7 +12,7 @@ const ProfileMini = ({ user, onRemove, onAdd }) => {
       <div className="profile-mini-user">
         <div className="profile-pic-holder profile-pic-holder-mini">
           <img
-            src={`http://localhost:5000${user.profilePicture}`} // Retrieve profilePicture from the database
+            src={`http://https://colege-platform-backend.onrender.com${user.profilePicture}`} // Retrieve profilePicture from the database
             alt={user.name || 'Unknown'}
             className="profile-pic"
           />

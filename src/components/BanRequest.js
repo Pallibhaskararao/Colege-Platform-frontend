@@ -23,13 +23,13 @@ const BanRequest = () => {
     const fetchData = async () => {
       try {
         if (postId !== 'null') {
-          const postResponse = await axios.get(`http://localhost:5000/api/posts/${postId}`, {
+          const postResponse = await axios.get(`http://https://colege-platform-backend.onrender.com/api/posts/${postId}`, {
             headers: { Authorization: `Bearer ${token}` },
           });
           setPost(postResponse.data);
         }
 
-        const userResponse = await axios.get(`http://localhost:5000/api/users/${userId}`, {
+        const userResponse = await axios.get(`http://https://colege-platform-backend.onrender.com/api/users/${userId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUser(userResponse.data);
@@ -56,7 +56,7 @@ const BanRequest = () => {
 
     try {
       await axios.post(
-        'http://localhost:5000/api/ban-requests',
+        'http://https://colege-platform-backend.onrender.com/api/ban-requests',
         {
           userToBan: userId,
           reason: reason.trim(),
