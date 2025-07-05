@@ -30,10 +30,10 @@ const Search = () => {
       setError(null);
 
       try {
-        const postsRes = await axios.get('http://locahost:5000/api/posts/recommendations', {
+        const postsRes = await axios.get('http://localhost:5000/api/posts/recommendations', {
           headers: { Authorization: `Bearer ${token}` },
         });
-        const usersRes = await axios.get('http://locahost:5000/api/users/recommendations', {
+        const usersRes = await axios.get('http://localhost:5000/api/users/recommendations', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setRecommendations({ posts: postsRes.data, users: usersRes.data });
@@ -55,7 +55,7 @@ const Search = () => {
     setError(null);
 
     try {
-      const res = await axios.get(`http://locahost:5000/api/search?query=${query}`, {
+      const res = await axios.get(`http://localhost:5000/api/search?query=${query}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setResults(res.data);
@@ -75,7 +75,7 @@ const Search = () => {
     setLoadingActions((prev) => ({ ...prev, [postId]: 'like' }));
     try {
       const res = await axios.post(
-        `http://locahost:5000/api/posts/${postId}/like`,
+        `http://localhost:5000/api/posts/${postId}/like`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -109,7 +109,7 @@ const Search = () => {
     setLoadingActions((prev) => ({ ...prev, [postId]: 'dislike' }));
     try {
       const res = await axios.post(
-        `http://locahost:5000/api/posts/${postId}/dislike`,
+        `http://localhost:5000/api/posts/${postId}/dislike`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -143,7 +143,7 @@ const Search = () => {
     setLoadingActions((prev) => ({ ...prev, [postId]: 'comment' }));
     try {
       const res = await axios.post(
-        `http://locahost:5000/api/posts/${postId}/comment`,
+        `http://localhost:5000/api/posts/${postId}/comment`,
         { text },
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -177,7 +177,7 @@ const Search = () => {
     if (!window.confirm('Are you sure you want to delete this post?')) return;
 
     try {
-      await axios.delete(`http://locahost:5000/api/posts/${postId}`, {
+      await axios.delete(`http://localhost:5000/api/posts/${postId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setResults((prev) => ({

@@ -4,7 +4,7 @@ import io from 'socket.io-client';
 import { useNavigate, Link } from 'react-router-dom';
 import './Notifications.css';
 
-const socket = io('http://locahost:5000');
+const socket = io('http://localhost:5000');
 
 const Notifications = () => {
   const [notifications, setNotifications] = useState([]);
@@ -18,7 +18,7 @@ const Notifications = () => {
 
   const fetchNotifications = async () => {
     try {
-      const res = await axios.get('http://locahost:5000/api/notifications', {
+      const res = await axios.get('http://localhost:5000/api/notifications', {
         headers: { Authorization: `Bearer ${token}` },
       });
       console.log('Fetched notifications:', res.data);
@@ -106,7 +106,7 @@ const Notifications = () => {
     try {
       if (!notification.read) {
         await axios.put(
-          `http://locahost:5000/api/notifications/${notification._id}/read`,
+          `http://localhost:5000/api/notifications/${notification._id}/read`,
           {},
           {
             headers: { Authorization: `Bearer ${token}` },
@@ -121,7 +121,7 @@ const Notifications = () => {
 
       if (!notification.viewed) {
         await axios.put(
-          `http://locahost:5000/api/notifications/${notification._id}/viewed`,
+          `http://localhost:5000/api/notifications/${notification._id}/viewed`,
           {},
           {
             headers: { Authorization: `Bearer ${token}` },
@@ -175,7 +175,7 @@ const Notifications = () => {
   const handleMarkAsViewed = async (notification) => {
     try {
       await axios.put(
-        `http://locahost:5000/api/notifications/${notification._id}/viewed`,
+        `http://localhost:5000/api/notifications/${notification._id}/viewed`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -195,7 +195,7 @@ const Notifications = () => {
   const handleMarkAllAsViewed = async () => {
     try {
       await axios.put(
-        'http://locahost:5000/api/notifications/viewed',
+        'http://localhost:5000/api/notifications/viewed',
         {},
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -215,7 +215,7 @@ const Notifications = () => {
       }
       console.log('Accepting request with ID:', requestId, 'Notification ID:', notificationId);
       await axios.put(
-        `http://locahost:5000/api/users/requests/${requestId}/accept`,
+        `http://localhost:5000/api/users/requests/${requestId}/accept`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -242,7 +242,7 @@ const Notifications = () => {
       }
       console.log('Declining request with ID:', requestId, 'Notification ID:', notificationId);
       await axios.put(
-        `http://locahost:5000/api/users/requests/${requestId}/decline`,
+        `http://localhost:5000/api/users/requests/${requestId}/decline`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );

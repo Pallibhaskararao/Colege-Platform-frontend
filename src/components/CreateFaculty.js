@@ -10,7 +10,7 @@ const CreateFaculty = () => {
 
   useEffect(() => {
     if (token) {
-      axios.get('http://locahost:5000/api/users/profile', {
+      axios.get('http://localhost:5000/api/users/profile', {
         headers: { Authorization: `Bearer ${token}` },
       })
         .then(res => {
@@ -34,7 +34,7 @@ const CreateFaculty = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://locahost:5000/api/users/create-faculty', formData, {
+      await axios.post('http://localhost:5000/api/users/create-faculty', formData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       alert('Faculty account created successfully');

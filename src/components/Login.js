@@ -16,7 +16,7 @@ const Login = ({ setToken }) => {
     setIsLoading(true);
 
     try {
-      const res = await axios.post('http://locahost:5000/api/users/login', {
+      const res = await axios.post('http://localhost:5000/api/users/login', {
         email,
         password,
       });

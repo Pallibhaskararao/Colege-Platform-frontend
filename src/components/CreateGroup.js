@@ -19,7 +19,7 @@ const CreateGroup = () => {
     }
 
     // Fetch the logged-in user's profile to check their role
-    axios.get('http://locahost:5000/api/users/profile', {
+    axios.get('http://localhost:5000/api/users/profile', {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then(res => {
@@ -43,7 +43,7 @@ const CreateGroup = () => {
     }
 
     try {
-      const res = await axios.get(`http://locahost:5000/api/search?query=${searchQuery}`, {
+      const res = await axios.get(`http://localhost:5000/api/search?query=${searchQuery}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       console.log('Search API response:', res.data);
@@ -79,7 +79,7 @@ const CreateGroup = () => {
 
     try {
       const memberIds = selectedMembers.map(member => member._id);
-      const res = await axios.post('http://locahost:5000/api/groups', {
+      const res = await axios.post('http://localhost:5000/api/groups', {
         name: groupName,
         memberIds,
       }, {

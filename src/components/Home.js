@@ -15,7 +15,7 @@ const Home = ({ token }) => {
     const fetchPosts = async () => {
       setIsLoading(true);
       try {
-        const res = await axios.get('http://locahost:5000/api/posts', {
+        const res = await axios.get('http://localhost:5000/api/posts', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setPosts(res.data); // Backend sorts by createdAt descending
@@ -34,7 +34,7 @@ const Home = ({ token }) => {
   const handleLike = async (postId) => {
     try {
       const res = await axios.post(
-        `http://locahost:5000/api/posts/${postId}/like`,
+        `http://localhost:5000/api/posts/${postId}/like`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -58,7 +58,7 @@ const Home = ({ token }) => {
   const handleDislike = async (postId) => {
     try {
       const res = await axios.post(
-        `http://locahost:5000/api/posts/${postId}/dislike`,
+        `http://localhost:5000/api/posts/${postId}/dislike`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -83,7 +83,7 @@ const Home = ({ token }) => {
   const handleCommentSubmit = async (postId, text) => {
     try {
       const res = await axios.post(
-        `http://locahost:5000/api/posts/${postId}/comment`,
+        `http://localhost:5000/api/posts/${postId}/comment`,
         { text },
         { headers: { Authorization: `Bearer ${token}` } }
       );

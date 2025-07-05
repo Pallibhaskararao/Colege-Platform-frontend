@@ -41,7 +41,7 @@ function App() {
         lastProcessedToken.current = token;
         setIsLoadingRole(true);
         try {
-          const res = await axios.get('locahost:5000/api/users/profile', {
+          const res = await axios.get('localhost:5000/api/users/profile', {
             headers: { Authorization: `Bearer ${token}` },
           });
           console.log('Fetched user role:', res.data.role); // Debug log

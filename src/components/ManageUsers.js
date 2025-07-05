@@ -14,7 +14,7 @@ const ManageUsers = () => {
     const fetchUsers = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://locahost:5000/api/users', {
+        const response = await axios.get('http://localhost:5000/api/users', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUsers(response.data);
@@ -27,7 +27,7 @@ const ManageUsers = () => {
     const fetchBanRequests = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://locahost:5000/api/ban-requests', {
+        const response = await axios.get('http://localhost:5000/api/ban-requests', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setBanRequests(response.data);
@@ -44,7 +44,7 @@ const ManageUsers = () => {
   const handleBan = async (userId) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.put(`http://locahost:5000/api/users/${userId}/ban`, {}, {
+      await axios.put(`http://localhost:5000/api/users/${userId}/ban`, {}, {
         headers: { Authorization: `Bearer ${token}` },
       });
       toast.success('User banned successfully');
@@ -60,7 +60,7 @@ const ManageUsers = () => {
   const handleUnban = async (userId) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.put(`http://locahost:5000/api/users/${userId}/unban`, {}, {
+      await axios.put(`http://localhost:5000/api/users/${userId}/unban`, {}, {
         headers: { Authorization: `Bearer ${token}` },
       });
       toast.success('User unbanned successfully');
@@ -76,7 +76,7 @@ const ManageUsers = () => {
   const handleApproveBanRequest = async (banRequestId) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.put(`http://locahost:5000/api/ban-requests/${banRequestId}/approve`, {}, {
+      const response = await axios.put(`http://localhost:5000/api/ban-requests/${banRequestId}/approve`, {}, {
         headers: { Authorization: `Bearer ${token}` },
       });
       toast.success(response.data.message);
@@ -96,7 +96,7 @@ const ManageUsers = () => {
   const handleRejectBanRequest = async (banRequestId) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.put(`http://locahost:5000/api/ban-requests/${banRequestId}/reject`, {}, {
+      const response = await axios.put(`http://localhost:5000/api/ban-requests/${banRequestId}/reject`, {}, {
         headers: { Authorization: `Bearer ${token}` },
       });
       toast.success(response.data.message);
