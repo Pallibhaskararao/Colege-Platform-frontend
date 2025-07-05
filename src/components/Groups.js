@@ -21,12 +21,12 @@ const Groups = () => {
 
     const fetchData = async () => {
       try {
-        const userRes = await axios.get('http://https://colege-platform-backend.onrender.com/api/users/profile', {
+        const userRes = await axios.get('http://locahost:5000/api/users/profile', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUser(userRes.data);
 
-        const groupsRes = await axios.get('http://https://colege-platform-backend.onrender.com/api/groups', {
+        const groupsRes = await axios.get('http://locahost:5000/api/groups', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setGroups(groupsRes.data);

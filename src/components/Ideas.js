@@ -13,7 +13,7 @@ const Ideas = () => {
 
   useEffect(() => {
     if (token && tag) {
-      axios.get(`http://https://colege-platform-backend.onrender.com/api/posts/by-tag/${tag}`, {
+      axios.get(`http://locahost:5000/api/posts/by-tag/${tag}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
         .then(res => setPosts(res.data))
@@ -23,7 +23,7 @@ const Ideas = () => {
 
   const handleLike = async (postId) => {
     try {
-      const res = await axios.post(`http://https://colege-platform-backend.onrender.com/api/posts/${postId}/like`, {}, {
+      const res = await axios.post(`http://locahost:5000/api/posts/${postId}/like`, {}, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setPosts(posts.map(post => (post._id === postId ? res.data : post)));
@@ -34,7 +34,7 @@ const Ideas = () => {
 
   const handleCommentSubmit = async (postId, text) => {
     try {
-      const res = await axios.post(`http://https://colege-platform-backend.onrender.com/api/posts/${postId}/comment`, { text }, {
+      const res = await axios.post(`http://locahost:5000/api/posts/${postId}/comment`, { text }, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setPosts(posts.map(post => (post._id === postId ? res.data : post)));

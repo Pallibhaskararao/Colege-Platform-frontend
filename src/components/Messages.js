@@ -6,7 +6,7 @@ import ProfileMini from './ProfileMini';
 import { FaPaperPlane } from 'react-icons/fa';
 import './Messages.css';
 
-const socket = io('http://https://colege-platform-backend.onrender.com');
+const socket = io('http://locahost:5000');
 
 const Messages = () => {
   const [conversations, setConversations] = useState([]);
@@ -23,7 +23,7 @@ const Messages = () => {
 
   const fetchConversations = async () => {
     try {
-      const res = await axios.get('http://https://colege-platform-backend.onrender.com/api/messages/conversations', {
+      const res = await axios.get('http://locahost:5000/api/messages/conversations', {
         headers: { Authorization: `Bearer ${token}` },
       });
       // Sort conversations by latestMessage.createdAt in descending order
@@ -65,7 +65,7 @@ const Messages = () => {
             setSelectedUser(user);
           } else {
             axios
-              .get(`http://https://colege-platform-backend.onrender.com/api/users/${selectedUserId}`, {
+              .get(`http://locahost:5000/api/users/${selectedUserId}`, {
                 headers: { Authorization: `Bearer ${token}` },
               })
               .then((userRes) => {
@@ -125,7 +125,7 @@ const Messages = () => {
   useEffect(() => {
     if (selectedUser) {
       axios
-        .get(`http://https://colege-platform-backend.onrender.com/api/messages/history/${selectedUser._id}`, {
+        .get(`http://locahost:5000/api/messages/history/${selectedUser._id}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((res) => {
@@ -163,7 +163,7 @@ const Messages = () => {
 
     try {
       const res = await axios.post(
-        'http://https://colege-platform-backend.onrender.com/api/messages',
+        'http://locahost:5000/api/messages',
         {
           receiverId: selectedUser._id,
           content: newMessage,

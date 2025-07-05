@@ -27,7 +27,7 @@ const PostCard = ({
   useEffect(() => {
     if (token) {
       axios
-        .get('http://https://colege-platform-backend.onrender.com/api/users/profile', {
+        .get('http://locahost:5000/api/users/profile', {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((res) => {
@@ -131,7 +131,7 @@ const PostCard = ({
         >
           <div className="profile-pic-holder profile-pic-holder-mini">
             <img
-              src={`http://https://colege-platform-backend.onrender.com${post.author.profilePicture}`} // Retrieve profilePicture from the database
+              src={`http://locahost:5000${post.author.profilePicture}`} // Retrieve profilePicture from the database
               alt={post.author.name || 'Unknown'}
               className="profile-pic"
             />

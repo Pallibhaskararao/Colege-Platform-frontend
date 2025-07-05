@@ -1,7 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
-  "proxy": "http://https://colege-platform-backend.onrender.com",
+  "proxy": "http://locahost:5000",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",

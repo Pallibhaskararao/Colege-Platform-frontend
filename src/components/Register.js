@@ -22,8 +22,8 @@ const Register = ({ setToken }) => {
     const fetchData = async () => {
       try {
         const [branchesRes, skillsRes] = await Promise.all([
-          axios.get('http://https://colege-platform-backend.onrender.com/api/branches'),
-          axios.get('http://https://colege-platform-backend.onrender.com/api/skills'),
+          axios.get('http://locahost:5000/api/branches'),
+          axios.get('http://locahost:5000/api/skills'),
         ]);
         setAvailableBranches(branchesRes.data);
         setAvailableSkills(skillsRes.data);
@@ -80,7 +80,7 @@ const Register = ({ setToken }) => {
 
     try {
       // Register the user
-      const res = await axios.post('http://https://colege-platform-backend.onrender.com/api/users/register', {
+      const res = await axios.post('http://locahost:5000/api/users/register', {
         name,
         email,
         password,
@@ -100,7 +100,7 @@ const Register = ({ setToken }) => {
         const formData = new FormData();
         formData.append('profilePicture', profilePicture);
         await axios.put(
-          'http://https://colege-platform-backend.onrender.com/api/users/profile-picture',
+          'http://locahost:5000/api/users/profile-picture',
           formData,
           {
             headers: {

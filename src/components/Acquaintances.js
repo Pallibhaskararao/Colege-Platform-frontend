@@ -11,7 +11,7 @@ const Acquaintances = () => {
   useEffect(() => {
     if (token) {
       // Fetch user profile with acquaintances and pending requests
-      axios.get('http://https://colege-platform-backend.onrender.com/api/users/profile', {
+      axios.get('http://locahost:5000/api/users/profile', {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -20,7 +20,7 @@ const Acquaintances = () => {
         .catch(err => console.log(err));
 
       // Fetch sent requests
-      axios.get('http://https://colege-platform-backend.onrender.com/api/users/requests/sent', {
+      axios.get('http://locahost:5000/api/users/requests/sent', {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -33,7 +33,7 @@ const Acquaintances = () => {
   const handleSearch = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.get(`http://https://colege-platform-backend.onrender.com/api/users/search?query=${query}`, {
+      const res = await axios.get(`http://locahost:5000/api/users/search?query=${query}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -46,13 +46,13 @@ const Acquaintances = () => {
 
   const handleSendRequest = async (id) => {
     try {
-      await axios.post(`http://https://colege-platform-backend.onrender.com/api/users/requests/${id}`, {}, {
+      await axios.post(`http://locahost:5000/api/users/requests/${id}`, {}, {
         headers: {
           Authorization: `Bearer ${token}`
         }
       });
       // Refresh sent requests after sending a new one
-      const res = await axios.get('http://https://colege-platform-backend.onrender.com/api/users/requests/sent', {
+      const res = await axios.get('http://locahost:5000/api/users/requests/sent', {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -67,7 +67,7 @@ const Acquaintances = () => {
 
   const handleAcceptRequest = async (requestId) => {
     try {
-      const res = await axios.put(`http://https://colege-platform-backend.onrender.com/api/users/requests/${requestId}/accept`, {}, {
+      const res = await axios.put(`http://locahost:5000/api/users/requests/${requestId}/accept`, {}, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -80,7 +80,7 @@ const Acquaintances = () => {
 
   const handleDeclineRequest = async (requestId) => {
     try {
-      const res = await axios.put(`http://https://colege-platform-backend.onrender.com/api/users/requests/${requestId}/decline`, {}, {
+      const res = await axios.put(`http://locahost:5000/api/users/requests/${requestId}/decline`, {}, {
         headers: {
           Authorization: `Bearer ${token}`
         }

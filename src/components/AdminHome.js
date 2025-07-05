@@ -22,7 +22,7 @@ const AdminHome = () => {
     const fetchUserProfile = async () => {
       try {
         setLoadingUser(true);
-        const res = await axios.get('http://https://colege-platform-backend.onrender.com/api/users/profile', {
+        const res = await axios.get('http://locahost:5000/api/users/profile', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUser(res.data);
@@ -42,7 +42,7 @@ const AdminHome = () => {
     const fetchPosts = async () => {
       try {
         setLoadingPosts(true);
-        const res = await axios.get('http://https://colege-platform-backend.onrender.com/api/posts', {
+        const res = await axios.get('http://locahost:5000/api/posts', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setPosts(res.data);
@@ -60,7 +60,7 @@ const AdminHome = () => {
 
   const handleLike = async (postId) => {
     try {
-      const res = await axios.post(`http://https://colege-platform-backend.onrender.com/api/posts/${postId}/like`, {}, {
+      const res = await axios.post(`http://locahost:5000/api/posts/${postId}/like`, {}, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setPosts(posts.map(post => (post._id === postId ? res.data : post)));
@@ -72,7 +72,7 @@ const AdminHome = () => {
 
   const handleCommentSubmit = async (postId, text) => {
     try {
-      const res = await axios.post(`http://https://colege-platform-backend.onrender.com/api/posts/${postId}/comment`, { text }, {
+      const res = await axios.post(`http://locahost:5000/api/posts/${postId}/comment`, { text }, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setPosts(posts.map(post => (post._id === postId ? res.data : post)));

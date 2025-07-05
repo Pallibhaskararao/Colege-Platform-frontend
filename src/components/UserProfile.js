@@ -28,10 +28,10 @@ const UserProfile = () => {
     const fetchData = async () => {
       try {
         const [userRes, loggedInUserRes, postsRes, requestsRes] = await Promise.all([
-          axios.get(`http://https://colege-platform-backend.onrender.com/api/users/${id}`, { headers: { Authorization: `Bearer ${token}` } }),
-          axios.get('http://https://colege-platform-backend.onrender.com/api/users/profile', { headers: { Authorization: `Bearer ${token}` } }),
-          axios.get(`http://https://colege-platform-backend.onrender.com/api/posts/user/${id}`, { headers: { Authorization: `Bearer ${token}` } }),
-          axios.get('http://https://colege-platform-backend.onrender.com/api/users/requests/sent', { headers: { Authorization: `Bearer ${token}` } }),
+          axios.get(`http://locahost:5000/api/users/${id}`, { headers: { Authorization: `Bearer ${token}` } }),
+          axios.get('http://locahost:5000/api/users/profile', { headers: { Authorization: `Bearer ${token}` } }),
+          axios.get(`http://locahost:5000/api/posts/user/${id}`, { headers: { Authorization: `Bearer ${token}` } }),
+          axios.get('http://locahost:5000/api/users/requests/sent', { headers: { Authorization: `Bearer ${token}` } }),
         ]);
 
         setUser(userRes.data);
@@ -54,7 +54,7 @@ const UserProfile = () => {
     try {
       setLoadingActions((prev) => ({ ...prev, [postId]: 'like' }));
       const res = await axios.post(
-        `http://https://colege-platform-backend.onrender.com/api/posts/${postId}/like`,
+        `http://locahost:5000/api/posts/${postId}/like`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -75,7 +75,7 @@ const UserProfile = () => {
     try {
       setLoadingActions((prev) => ({ ...prev, [postId]: 'dislike' }));
       const res = await axios.post(
-        `http://https://colege-platform-backend.onrender.com/api/posts/${postId}/dislike`,
+        `http://locahost:5000/api/posts/${postId}/dislike`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -96,7 +96,7 @@ const UserProfile = () => {
     try {
       setLoadingActions((prev) => ({ ...prev, [postId]: 'comment' }));
       const res = await axios.post(
-        `http://https://colege-platform-backend.onrender.com/api/posts/${postId}/comment`,
+        `http://locahost:5000/api/posts/${postId}/comment`,
         { text },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -116,7 +116,7 @@ const UserProfile = () => {
   const handleDelete = async (postId) => {
     if (!window.confirm('Are you sure you want to delete this post?')) return;
     try {
-      await axios.delete(`http://https://colege-platform-backend.onrender.com/api/posts/${postId}`, {
+      await axios.delete(`http://locahost:5000/api/posts/${postId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setPosts(posts.filter((post) => post._id !== postId));
@@ -133,11 +133,11 @@ const UserProfile = () => {
   const handleSendRequest = async (userId) => {
     try {
       await axios.post(
-        `http://https://colege-platform-backend.onrender.com/api/users/requests/${userId}`,
+        `http://locahost:5000/api/users/requests/${userId}`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
-      const res = await axios.get('http://https://colege-platform-backend.onrender.com/api/users/requests/sent', {
+      const res = await axios.get('http://locahost:5000/api/users/requests/sent', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setSentRequests(res.data);
@@ -183,7 +183,7 @@ const UserProfile = () => {
 
       <div className="profile-pic-holder">
         <img
-          src={`http://https://colege-platform-backend.onrender.com${user.profilePicture}`} // Retrieve profilePicture from the database
+          src={`http://locahost:5000${user.profilePicture}`} // Retrieve profilePicture from the database
           alt="Profile"
           className="profile-pic"
         />

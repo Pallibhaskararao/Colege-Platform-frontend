@@ -11,7 +11,7 @@ const DeletePost = () => {
   useEffect(() => {
     if (token) {
       // Fetch user profile to check role
-      axios.get('http://https://colege-platform-backend.onrender.com/api/users/profile', {
+      axios.get('http://locahost:5000/api/users/profile', {
         headers: { Authorization: `Bearer ${token}` },
       })
         .then(res => {
@@ -25,7 +25,7 @@ const DeletePost = () => {
         });
 
       // Fetch all posts
-      axios.get('http://https://colege-platform-backend.onrender.com/api/posts', {
+      axios.get('http://locahost:5000/api/posts', {
         headers: { Authorization: `Bearer ${token}` },
       })
         .then(res => setPosts(res.data))
@@ -38,7 +38,7 @@ const DeletePost = () => {
   const handleDelete = async (postId) => {
     if (window.confirm('Are you sure you want to delete this post?')) {
       try {
-        await axios.delete(`http://https://colege-platform-backend.onrender.com/api/posts/${postId}`, {
+        await axios.delete(`http://locahost:5000/api/posts/${postId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setPosts(posts.filter(post => post._id !== postId));

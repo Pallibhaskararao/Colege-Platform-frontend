@@ -4,7 +4,7 @@ import io from 'socket.io-client';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import ProfileMini from './ProfileMini';
 
-const socket = io('http://https://colege-platform-backend.onrender.com');
+const socket = io('http://locahost:5000');
 
 const GroupChat = () => {
   const { groupId } = useParams();
@@ -37,20 +37,20 @@ const GroupChat = () => {
     const fetchData = async () => {
       try {
         // Fetch user profile
-        const userRes = await axios.get('http://https://colege-platform-backend.onrender.com/api/users/profile', {
+        const userRes = await axios.get('http://locahost:5000/api/users/profile', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUser(userRes.data);
 
         // Fetch group details
-        const groupRes = await axios.get(`http://https://colege-platform-backend.onrender.com/api/groups/${groupId}`, {
+        const groupRes = await axios.get(`http://locahost:5000/api/groups/${groupId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setGroup(groupRes.data);
 
         // Fetch group message history
         const messagesRes = await axios.get(
-          `http://https://colege-platform-backend.onrender.com/api/messages/group-history/${groupId}`,
+          `http://locahost:5000/api/messages/group-history/${groupId}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -59,7 +59,7 @@ const GroupChat = () => {
 
         // Reset unread count for this group
         await axios.put(
-          `http://https://colege-platform-backend.onrender.com/api/groups/${groupId}/reset-unread`,
+          `http://locahost:5000/api/groups/${groupId}/reset-unread`,
           {},
           {
             headers: { Authorization: `Bearer ${token}` },
@@ -110,7 +110,7 @@ const GroupChat = () => {
 
     try {
       const res = await axios.post(
-        'http://https://colege-platform-backend.onrender.com/api/messages',
+        'http://locahost:5000/api/messages',
         {
           groupId,
           content: newMessage,
@@ -132,7 +132,7 @@ const GroupChat = () => {
     if (!searchQuery.trim()) return;
 
     try {
-      const res = await axios.get(`http://https://colege-platform-backend.onrender.com/api/search?query=${searchQuery}`, {
+      const res = await axios.get(`http://locahost:5000/api/search?query=${searchQuery}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setSearchResults(res.data.users.filter((u) => !group.members.some((m) => m._id === u._id)));
@@ -145,7 +145,7 @@ const GroupChat = () => {
   const handleAddMemberToGroup = async (member) => {
     try {
       const res = await axios.put(
-        `http://https://colege-platform-backend.onrender.com/api/groups/${groupId}/add-member`,
+        `http://locahost:5000/api/groups/${groupId}/add-member`,
         {
           memberId: member._id,
         },
@@ -166,7 +166,7 @@ const GroupChat = () => {
   const handleRemoveMemberFromGroup = async (memberId) => {
     try {
       const res = await axios.put(
-        `http://https://colege-platform-backend.onrender.com/api/groups/${groupId}/remove-member`,
+        `http://locahost:5000/api/groups/${groupId}/remove-member`,
         {
           memberId,
         },
